@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk7kat81i5rnr"]
+
+[ext_resource type="PackedScene" uid="uid://deapu7gebd31l" path="res://player.tscn" id="1_mcbl5"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fgjev"]
+size = Vector2(20, 20)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ql2h1"]
+data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_fgjev")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ql2h1")
+
+[node name="Node3D" parent="." instance=ExtResource("1_mcbl5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49245, 5.62877, -0.229006)
+
+[node name="Neck" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Node3D/Neck"]
