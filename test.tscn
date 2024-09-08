@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bk7kat81i5rnr"]
+[gd_scene load_steps=5 format=3 uid="uid://bk7kat81i5rnr"]
 
+[ext_resource type="Script" path="res://world.gd" id="1_drvuw"]
 [ext_resource type="PackedScene" uid="uid://deapu7gebd31l" path="res://player.tscn" id="1_mcbl5"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_fgjev"]
@@ -9,6 +10,8 @@ size = Vector2(20, 20)
 data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
 
 [node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0560856, 0.030859, 0.0684452)
+script = ExtResource("1_drvuw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_fgjev")
@@ -23,8 +26,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49245, 9.59882, -0.229006)
 
 [node name="Neck" type="Node3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249, 0)
-
-[node name="Camera3D" type="Camera3D" parent="Node3D/Neck"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.985082, -0.155634, 0.0734293, -0.0487285, 0.156966, 0.986401, -0.165043, -0.975264, 0.14704, -0.00569153, 14.8904, -12.9536)
