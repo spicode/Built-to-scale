@@ -19,9 +19,12 @@ mesh = SubResource("PlaneMesh_fgjev")
 shape = SubResource("ConcavePolygonShape3D_ql2h1")
 
 [node name="Node3D" parent="." instance=ExtResource("1_mcbl5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49245, 5.62877, -0.229006)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49245, 9.59882, -0.229006)
 
 [node name="Neck" type="Node3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Node3D/Neck"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.985082, -0.155634, 0.0734293, -0.0487285, 0.156966, 0.986401, -0.165043, -0.975264, 0.14704, -0.00569153, 14.8904, -12.9536)
