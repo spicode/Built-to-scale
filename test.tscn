@@ -1,13 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://bk7kat81i5rnr"]
+[gd_scene load_steps=8 format=3 uid="uid://bk7kat81i5rnr"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_drvuw"]
 [ext_resource type="PackedScene" uid="uid://deapu7gebd31l" path="res://player.tscn" id="1_mcbl5"]
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://pickable.tscn" id="3_twhtp"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_fgjev"]
 size = Vector2(20, 20)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ql2h1"]
 data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_37ls5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_prin4"]
+size = Vector3(1, 2, 1)
 
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0560856, 0.030859, 0.0684452)
@@ -22,10 +28,23 @@ mesh = SubResource("PlaneMesh_fgjev")
 shape = SubResource("ConcavePolygonShape3D_ql2h1")
 
 [node name="Node3D" parent="." instance=ExtResource("1_mcbl5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49245, 9.59882, -0.229006)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.492, 2.254, -0.229)
 
 [node name="Neck" type="Node3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.985082, -0.155634, 0.0734293, -0.0487285, 0.156966, 0.986401, -0.165043, -0.975264, 0.14704, -0.00569153, 14.8904, -12.9536)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.227054, 1.30694, -0.209863)
+mesh = SubResource("BoxMesh_37ls5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_prin4")
+
+[node name="PickableObject" parent="." instance=ExtResource("3_twhtp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.37519, 0)
