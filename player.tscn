@@ -2,15 +2,12 @@
 
 [ext_resource type="Script" path="res://player.gd" id="1_wr0xn"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="3_hkr7h"]
+[ext_resource type="PackedScene" uid="uid://d1tl07geqm5xq" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_fullglove_hand.tscn" id="3_r42bd"]
+[ext_resource type="PackedScene" uid="uid://xqimcf20s2jp" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_fullglove_low.tscn" id="4_knghv"]
 
 [sub_resource type="PlaceholderMesh" id="PlaceholderMesh_3nbal"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_saf5i"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_l1its"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_x81an"]
-size = Vector3(0.117, 0.117, 0.117)
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
 script = ExtResource("1_wr0xn")
@@ -29,17 +26,14 @@ shape = SubResource("CapsuleShape3D_saf5i")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.861638, 2.98023e-08, -0.850626)
 tracker = &"left_hand"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/leftcont"]
-transform = Transform3D(0.117, 0, 0, 0, 0.117, 0, 0, 0, 0.117, 0, 0, 0)
-mesh = SubResource("BoxMesh_l1its")
-
 [node name="FunctionPickup" parent="XROrigin3D/leftcont" instance=ExtResource("3_hkr7h")]
+
+[node name="RightHand" parent="XROrigin3D/leftcont" instance=ExtResource("3_r42bd")]
 
 [node name="rightcont" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(0.554699, -0.832051, 0, 0.832051, 0.554699, 0, 0, 0, 1, -0.661108, 0.346662, -1.08037)
 tracker = &"right_hand"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/rightcont"]
-mesh = SubResource("BoxMesh_x81an")
-
 [node name="FunctionPickup" parent="XROrigin3D/rightcont" instance=ExtResource("3_hkr7h")]
+
+[node name="RightHand" parent="XROrigin3D/rightcont" instance=ExtResource("4_knghv")]
