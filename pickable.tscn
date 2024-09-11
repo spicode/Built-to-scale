@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8l60rnugru40"]
+[gd_scene load_steps=4 format=3 uid="uid://4pdnualb7hyy"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1"]
 

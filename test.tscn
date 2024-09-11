@@ -1,23 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://bk7kat81i5rnr"]
+[gd_scene load_steps=8 format=3 uid="uid://bk7kat81i5rnr"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_drvuw"]
 [ext_resource type="PackedScene" uid="uid://deapu7gebd31l" path="res://player.tscn" id="1_mcbl5"]
-[ext_resource type="PackedScene" path="res://pickable.tscn" id="3_twhtp"]
+[ext_resource type="PackedScene" uid="uid://4pdnualb7hyy" path="res://pickable.tscn" id="3_twhtp"]
 [ext_resource type="PackedScene" uid="uid://dxm64nfvblc5u" path="res://table.glb" id="4_iw2k6"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_fgjev"]
-size = Vector2(20, 20)
+[sub_resource type="BoxMesh" id="BoxMesh_6dto6"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ql2h1"]
 data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yynde"]
+size = Vector3(18.9903, 0.446167, 28.6831)
 
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0560856, 0.030859, 0.0684452)
 script = ExtResource("1_drvuw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0558453, 0.898144, 0.960076)
-mesh = SubResource("PlaneMesh_fgjev")
+transform = Transform3D(88.8312, 0, 0, 0, 0.364504, 0.519549, 0, -0.00304101, 62.2747, -0.0558453, -0.743489, 0.960076)
+mesh = SubResource("BoxMesh_6dto6")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0768731, 0.244783, 0.837537)
@@ -27,10 +29,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38998, 0)
 shape = SubResource("ConcavePolygonShape3D_ql2h1")
 
 [node name="PickableObject" parent="." instance=ExtResource("3_twhtp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.24386, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0032506, 2.24823, -0.0120103)
 
 [node name="Node3D" parent="." instance=ExtResource("1_mcbl5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.942875, 2.12236, -1.56766)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.55164, 2.93405, -0.133139)
 rotation_edit_mode = 1
 
 [node name="Neck" type="Node3D" parent="Node3D"]
@@ -40,9 +42,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249, 0)
 transform = Transform3D(0.985082, -0.155634, 0.0734293, -0.0487285, 0.156966, 0.986401, -0.165043, -0.975264, 0.14704, -0.00569153, 14.8904, -12.9536)
 
 [node name="table" parent="." instance=ExtResource("4_iw2k6")]
-transform = Transform3D(0.0704214, 0, 0, 0, 0.0704214, 0, 0, 0, 0.0704214, -0.409103, 0.881936, 0.230402)
+transform = Transform3D(0.0704214, 0, 0, 0, 0.127201, 0, 0, 0, 0.0704214, -0.409103, -0.0527368, 0.230402)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="table"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="table/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.146711, 7.49648, 0.717227)
+shape = SubResource("BoxShape3D_yynde")

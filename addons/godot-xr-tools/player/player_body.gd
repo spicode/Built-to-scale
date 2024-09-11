@@ -445,7 +445,7 @@ func slew_up(up: Vector3, slew: float) -> void:
 
 	# Update the origin
 	origin_node.global_transform = new_origin
-
+var XRToolsUserSettings = "res://addons/godot-xr-tools/user_settings/user_settings.gd"
 ## This method calibrates the players height on the assumption
 ## the player is in rest position
 func calibrate_player_height():

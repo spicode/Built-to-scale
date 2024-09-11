@@ -13,7 +13,8 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
-		velocity.y -= gravity * delta
+		velocity.y -= (gravity * delta)*2
+		print(position)
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
