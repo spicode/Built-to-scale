@@ -51,7 +51,7 @@ func _ready():
 		XRServer.tracker_added.connect(self._on_webxr_tracker_added)
 
 	_load()
-
+var XRToolsRumbleManager = "res://addons/godot-xr-tools/rumble/rumble_manager.gd"
 
 ## Reset to default values
 func reset_to_defaults() -> void:

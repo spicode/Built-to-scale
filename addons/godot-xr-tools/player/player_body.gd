@@ -446,11 +446,18 @@ func slew_up(up: Vector3, slew: float) -> void:
 	# Update the origin
 	origin_node.global_transform = new_origin
 var XRToolsUserSettings = "res://addons/godot-xr-tools/user_settings/user_settings.gd"
+var playerScript = load("res://player.gd")  # Load the player script
+
 ## This method calibrates the players height on the assumption
 ## the player is in rest position
 func calibrate_player_height():
+	# Assuming 'camera_node' is already defined somewhere in the script
 	var base_height = camera_node.transform.origin.y + (player_head_height * XRServer.world_scale)
-	var player_height = XRToolsUserSettings.player_height * XRServer.world_scale
+	
+	# If 'player_height_' is a property of the player instance:
+	var player_instance = playerScript.new()  # Create a new instance of the player script
+	var player_height : float = player_instance.player_height_ * XRServer.world_scale
+	
 	player_height_offset = (player_height - base_height) / XRServer.world_scale
 
 ## This method sets or clears a named height override
