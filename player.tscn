@@ -4,23 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="2_bxshp"]
 [ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="3_fqpua"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="3_hkr7h"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_wg183"]
+[ext_resource type="PackedScene" uid="uid://cy03d57iyrci" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_physics_hand.tscn" id="4_8n7bw"]
+[ext_resource type="PackedScene" uid="uid://c78tjrtiyqna8" path="res://addons/godot-xr-tools/functions/movement_grapple.tscn" id="5_kr7kw"]
+[ext_resource type="PackedScene" uid="uid://kcqomcjq52np" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_physics_hand.tscn" id="6_3k586"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_saf5i"]
 height = 1.534
 
-[sub_resource type="BoxMesh" id="BoxMesh_l1its"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_x81an"]
-size = Vector3(0.117, 0.117, 0.117)
-
 [node name="CharacterBody3D" type="CharacterBody3D"]
+collision_mask = 4
 script = ExtResource("1_wr0xn")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.76, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("CapsuleMesh_wg183")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0167843, 0)
@@ -36,20 +29,29 @@ shape = SubResource("CapsuleShape3D_saf5i")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.861638, 2.98023e-08, -0.850626)
 tracker = &"left_hand"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/leftcont"]
-transform = Transform3D(0.117, 0, 0, 0, 0.117, 0, 0, 0, 0.117, 0, 0.00186118, 3.82066e-05)
-mesh = SubResource("BoxMesh_l1its")
-
 [node name="FunctionPickup" parent="XROrigin3D/leftcont" instance=ExtResource("3_hkr7h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0300403, 0.100576)
+
+[node name="LeftPhysicsHand2" parent="XROrigin3D/leftcont" instance=ExtResource("4_8n7bw")]
+
+[node name="MovementGrapple" parent="XROrigin3D/leftcont" instance=ExtResource("5_kr7kw")]
+grapple_collision_mask = 12
+grapple_enable_mask = 10
+impulse_speed = 6.0
+winch_speed = 1.0
+rope_width = 0.04
 
 [node name="rightcont" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(0.554699, -0.832051, 0, 0.832051, 0.554699, 0, 0, 0, 1, -0.661108, 0.346662, -1.08037)
 tracker = &"right_hand"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/rightcont"]
-mesh = SubResource("BoxMesh_x81an")
-
 [node name="FunctionPickup" parent="XROrigin3D/rightcont" instance=ExtResource("3_hkr7h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015137, -0.0100913, 0.062547)
+grab_collision_mask = 327686
+ranged_collision_mask = 6
 
 [node name="FunctionTeleport" parent="XROrigin3D/rightcont" instance=ExtResource("3_fqpua")]
-transform = Transform3D(0.554699, 0.832051, 0, -0.832051, 0.554699, 0, 0, 0, 1, 0.0782755, -0.742369, 1.08037)
+transform = Transform3D(0.554699, 0.832051, 0, -0.832051, 0.554699, 0, 0, 0, 1, 0.0782755, -0.742369, -0.811056)
+player_scene = null
+
+[node name="RightPhysicsHand" parent="XROrigin3D/rightcont" instance=ExtResource("6_3k586")]
