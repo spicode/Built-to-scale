@@ -18,4 +18,5 @@ shape = SubResource("BoxShape3D_un3vn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.117, 0, 0, 0, 0.117, 0, 0, 0, 0.117, 0, 0, 0)
+layers = 15
 mesh = SubResource("BoxMesh_f8tf8")
