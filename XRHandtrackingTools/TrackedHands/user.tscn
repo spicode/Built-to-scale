@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://1n1kke68mut5"]
 
 [ext_resource type="Script" path="res://XRHandtrackingTools/TrackedHands/xr_origin_reset.gd" id="1_igs7e"]
-[ext_resource type="Script" path="res://godot-free-look-camera-132062011edfce9399a489756064cfea880dad4c/free_look_camera.gd" id="1_qrrl8"]
+[ext_resource type="Script" path="res://free_look_camera.gd" id="1_qrrl8"]
 [ext_resource type="PackedScene" uid="uid://d3erlk2vajf4k" path="res://XRHandtrackingTools/TrackedHands/tracked_hand_left.tscn" id="2_bncog"]
 [ext_resource type="PackedScene" uid="uid://v4wv8mgicjyc" path="res://XRHandtrackingTools/TrackedHands/tracked_hand_right.tscn" id="3_c4i0j"]
 

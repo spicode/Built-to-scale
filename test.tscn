@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bxnvcdo05qosd" path="res://gun.tscn" id="5_silva"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_6dto6"]
+subdivide_width = 7
+subdivide_height = 7
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4bc0k"]
 size = Vector3(0.98645, 1, 0.996094)
@@ -28,17 +30,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0560856, 0.030859, 0.06844
 script = ExtResource("1_drvuw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(88.8312, 0, 0, 0, 0.364504, 0.519549, 0, -0.00304101, 62.2747, -0.0558453, -0.743489, 0.960076)
+transform = Transform3D(88.831, 0, 0, 0, 0.01, 0, 0, 0, 62.277, 0, 0, 0)
 layers = 12
 mesh = SubResource("BoxMesh_6dto6")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0768731, 0.244783, 0.837537)
 collision_layer = 5
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1.00003, 1.26362e-05, 0, -6.54836e-11, 1.00003, 0.0869751, 1.38998, -0.830082)
+transform = Transform3D(1, 0, 0, 0, 1.00003, 1.26362e-05, 0, -6.54836e-11, 1.00003, 0, 0, 0)
 shape = SubResource("BoxShape3D_4bc0k")
 
 [node name="PickableObject" parent="." instance=ExtResource("3_twhtp")]
@@ -90,7 +91,7 @@ mesh = SubResource("BoxMesh_f1qqg")
 shape = SubResource("BoxShape3D_ml58n")
 
 [node name="StaticBody3D4" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.61358, 7.07975, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.13819, 7.07975, 0)
 collision_layer = 8
 collision_mask = 8
 
@@ -101,13 +102,37 @@ mesh = SubResource("BoxMesh_f1qqg")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4"]
 shape = SubResource("BoxShape3D_ml58n")
 
+[node name="StaticBody3D5" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0560856, 9.38207, -24.9495)
+collision_layer = 8
+collision_mask = 8
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D5"]
+layers = 12
+mesh = SubResource("BoxMesh_f1qqg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D5"]
+shape = SubResource("BoxShape3D_ml58n")
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0560856, 9.38207, -16.2483)
+collision_layer = 8
+collision_mask = 8
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D6"]
+layers = 12
+mesh = SubResource("BoxMesh_f1qqg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D6"]
+shape = SubResource("BoxShape3D_ml58n")
+
 [node name="table" parent="." instance=ExtResource("4_iw2k6")]
 transform = Transform3D(0.0704214, 0, 0, 0, 0.127201, 0, 0, 0, 0.0704214, -0.409103, -0.0527368, 0.230402)
 script = ExtResource("5_l2t2b")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="table"]
-collision_layer = 8
-collision_mask = 8
+collision_layer = 12
+collision_mask = 12
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="table/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.146711, 7.49648, 0.717227)
