@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxnvcdo05qosd"]
+
+[ext_resource type="Script" path="res://small_gun.gd" id="1_mr837"]
+[ext_resource type="PackedScene" uid="uid://delhe5t4qgiot" path="res://smallgun.glb" id="2_ycfy4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_un3vn"]
+size = Vector3(2.93152, 1, 12.1115)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ucqv"]
+albedo_color = Color(1, 0.387955, 0.319725, 0)
+
+[sub_resource type="SphereMesh" id="SphereMesh_25jlp"]
+material = SubResource("StandardMaterial3D_1ucqv")
+radius = 0.064
+height = 0.128
+
+[node name="gun" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("1_mr837")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.117, 0, 0, 0, 0.562, 0, 0, 0, 0.117, 0.112994, 0, -0.13041)
+shape = SubResource("BoxShape3D_un3vn")
+
+[node name="smallgun" parent="." instance=ExtResource("2_ycfy4")]
+transform = Transform3D(0.117, 0, 0, 0, 0.117, 0, 0, 0, 0.117, 0, 0, 0)
+
+[node name="aim" type="RayCast3D" parent="."]
+transform = Transform3D(1.02084, 0, 0, 0, 1.02084, 0, 0, 0, 1.02084, 0, 0, 0.777736)
+target_position = Vector3(0, 0, 5)
+collision_mask = 6
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="aim"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.625149)
+mesh = SubResource("SphereMesh_25jlp")

@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_un3vn"]
+size = Vector3(2.93152, 1, 12.1115)
 
 [sub_resource type="BoxMesh" id="BoxMesh_f8tf8"]
 
