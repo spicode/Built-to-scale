@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://deapu7gebd31l"]
+[gd_scene load_steps=9 format=3 uid="uid://deapu7gebd31l"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_wr0xn"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="2_bxshp"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cy03d57iyrci" path="res://XRHandtrackingTools/hands/scenes/highpoly/left_physics_hand.tscn" id="4_uk1vl"]
 [ext_resource type="PackedScene" uid="uid://c78tjrtiyqna8" path="res://addons/godot-xr-tools/functions/movement_grapple.tscn" id="5_kr7kw"]
 [ext_resource type="PackedScene" uid="uid://kcqomcjq52np" path="res://XRHandtrackingTools/hands/scenes/highpoly/right_physics_hand.tscn" id="7_4o25s"]
-[ext_resource type="Script" path="res://gun.gd" id="8_33jjh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_saf5i"]
 height = 1.534
@@ -57,8 +56,3 @@ teleport_button_action = "ax_button"
 player_scene = null
 
 [node name="RightPhysicsHand" parent="XROrigin3D/rightcont" instance=ExtResource("7_4o25s")]
-
-[node name="Node3D" type="Node3D" parent="XROrigin3D/rightcont"]
-script = ExtResource("8_33jjh")
-
-[node name="RayCast3D" type="RayCast3D" parent="XROrigin3D/rightcont/Node3D"]
